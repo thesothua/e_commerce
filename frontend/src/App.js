@@ -5,19 +5,34 @@ import Header from "./user/Header";
 import LatestProduct from "./user/LatestProduct";
 import Slide from "./user/Slide";
 import Navbar from "./user/Navbar";
+import Login from "./user/Login";
 
+import React from "react";
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <Router>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Header />
+            <Navbar />
+            <Slide />
+            <LatestProduct />
+          </>
+        } />
 
-      <Header />
-   
-      <Navbar/>
-      <Slide />
-      <LatestProduct />
-    </div>
+        <Route path="/login" element={<Login />} />
+
+      </Routes>
+    </Router>
   );
 }
 
